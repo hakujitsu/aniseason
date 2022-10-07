@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['api-cdn.myanimelist.net'],
+  },
 }
 
 module.exports = nextConfig
