@@ -23,7 +23,7 @@ export const generateSeasons = () => {
 
 export const parseSeason = (s) => {
   const temp = s.split(" ")
-  const season = temp[0]
+  const season = temp[0].toLowerCase()
   const year = temp[1]
 
   return {season, year}

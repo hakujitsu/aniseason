@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { generateSeasons } from "../utils/seasons";
+import { generateSeasons, parseSeason } from "../utils/seasons";
 
 export const SeasonContext = createContext(null);
 
@@ -7,7 +7,11 @@ export const useSeasonContextProvider = () => {
   const seasons = generateSeasons();
   const [currentSeasonIndex, setCurrentSeasonIndex] = useState(seasons.length - 4)
 
-  return {seasons, currentSeasonIndex, setCurrentSeasonIndex}
+  const getCurrentSeasonParams = () => {
+    return parseSeason(seasons[currentSeasonIndex])
+  }
+
+  return { seasons, currentSeasonIndex, setCurrentSeasonIndex, getCurrentSeasonParams }
 }
 
 export const useSeasonContext = () => {
