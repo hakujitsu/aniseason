@@ -5,7 +5,7 @@ export const SeasonContext = createContext(null);
 
 export const useSeasonContextProvider = () => {
   const seasons = generateSeasons();
-  const [currentSeasonIndex, setCurrentSeasonIndex] = useState(seasons.length - 4)
+  const [currentSeasonIndex, setCurrentSeasonIndex] = useState(seasons.length - 3)
 
   const getCurrentSeasonParams = () => {
     return parseSeason(seasons[currentSeasonIndex])

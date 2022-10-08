@@ -12,10 +12,15 @@ export const generateSeasons = () => {
     })
   }
 
-  let currSeasonIndex = Math.floor(currMonth / 4)
+  let currSeasonIndex = Math.floor(currMonth / 3)
 
-  for (let s = 0; s < currSeasonIndex + 1; s++) {
-    seasons.push(fourSeasons[s] + " " + (currYear + 1))
+  if (currSeasonIndex === 0) {
+    seasons.pop()
+  } else if (currSeasonIndex === 2) {
+    seasons.push(fourSeasons[0] + " " + (currYear + 1))
+  } else if (currSeasonIndex === 3) {
+    seasons.push(fourSeasons[0] + " " + (currYear + 1))
+    seasons.push(fourSeasons[1] + " " + (currYear + 1))
   }
 
   return seasons
