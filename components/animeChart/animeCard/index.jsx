@@ -18,7 +18,7 @@ const AnimeCard = (props) => {
   const { id, title, img, synopsis } = props;
 
   return (
-    <Card  sx={sx.card}>
+    <Card sx={sx.card}>
       <Stack direction="row" alignItems="flex-start" position="relative">
         <CardMedia component="img" alt={title} image={img} sx={sx.cardImage} />
         <AnimeCardContents id={id} title={title} synopsis={synopsis} />

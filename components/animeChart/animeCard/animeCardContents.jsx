@@ -1,8 +1,8 @@
 import { Box, CardContent, Stack } from "@mui/material";
 import { useRef } from "react";
+import useComponentSize from "@rehooks/component-size";
 import AnimeCardSynopsis from "./animeCardSynopsis";
 import AnimeCardTitle from "./animeCardTitle";
-import useComponentSize from "@rehooks/component-size";
 
 const sx = {
   body: {
