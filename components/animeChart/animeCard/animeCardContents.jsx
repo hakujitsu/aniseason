@@ -1,6 +1,8 @@
-import { Box, CardContent, Stack, Typography } from "@mui/material";
+import { Box, CardContent, Stack } from "@mui/material";
 import { useRef } from "react";
+import AnimeCardSynopsis from "./animeCardSynopsis";
 import AnimeCardTitle from "./animeCardTitle";
+import useComponentSize from "@rehooks/component-size";
 
 const sx = {
   body: {
@@ -12,7 +14,8 @@ const sx = {
 const AnimeCardContents = (props) => {
   const { id, title, synopsis } = props;
 
-  const titleRef = useRef();
+  const titleRef = useRef(null);
+  let dimensions = useComponentSize(titleRef);
 
   return (
     <CardContent>
@@ -21,24 +24,7 @@ const AnimeCardContents = (props) => {
           <AnimeCardTitle title={title} id={id} />
         </Box>
 
-        <Box
-          sx={[
-            sx.body,
-            {
-              height:
-                "" +
-                (320 -
-                  (titleRef.current ? titleRef.current.clientHeight : 0) -
-                  8 -
-                  16 * 2) +
-                "px",
-            },
-          ]}
-        >
-          <Typography variant="body2" sx={sx.body}>
-            {synopsis}
-          </Typography>
-        </Box>
+        <AnimeCardSynopsis height={dimensions.height} synopsis={synopsis} />
       </Stack>
     </CardContent>
   );
